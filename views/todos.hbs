@@ -1,0 +1,41 @@
+<div class="container">
+    <h1 class="text-center">Todos</h1>
+    <ul class="list-group">
+        {{#each todos}}
+        {{#unless status}}
+        <li class="list-group-item">
+            <div class="todo-item">
+                <a href="/todos/{{id}}/done?_method=PUT" class="btn btn-success">Done</a>
+                {{ title }}
+                <p>Due date: {{formatDate due_date}}</p>
+                <span>
+                    <a href="/todos/edit/{{id}}" class="btn btn-warning">Edit</a>
+                    <a href="/todos/{{ id }}?_method=DELETE"class="btn btn-danger">Delete</a>
+                </span>
+            </div>
+        </li>
+        {{/unless}}
+        {{/each}}
+    </ul>
+    <a href="todos/new"class="btn btn-success mt-3">New Todo</a>
+</div>
+<div class="container">
+    <h1 class="text-center">Done</h1>
+    <ul class="list-group">
+        {{#each todos}}
+        {{#if status}}
+        <li class="list-group-item">
+            <div class="todo-item">
+                <a href="/todos/{{id}}/done?_method=PUT" class="btn btn-warning">Undo</a>
+                {{ title }}
+                <p>Due date: {{formatDate due_date}}</p>
+                <span>
+                    <a href="/todos/edit/{{id}}" class="btn btn-warning">Edit</a>
+                    <a href="/todos/{{ id }}?_method=DELETE"class="btn btn-danger">Delete</a>
+                </span>
+            </div>
+        </li>
+        {{/if}}
+        {{/each}}
+    </ul>
+</div>
