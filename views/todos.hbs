@@ -1,5 +1,5 @@
 <div class="container">
-    <h1 class="text-center">Todos</h1>
+    <h1 class="text-center">To-dos</h1>
     <ul class="list-group">
         {{#each todos}}
         {{#unless status}}
@@ -8,6 +8,7 @@
                 <a href="/todos/{{id}}/done?_method=PUT" class="btn btn-success">Done</a>
                 {{ title }}
                 <p>Due date: {{formatDate due_date}}</p>
+                <p>Priority: {{priority}}</p>
                 <span>
                     <a href="/todos/edit/{{id}}" class="btn btn-warning">Edit</a>
                     <a href="/todos/{{ id }}?_method=DELETE"class="btn btn-danger">Delete</a>
@@ -17,7 +18,7 @@
         {{/unless}}
         {{/each}}
     </ul>
-    <a href="todos/new"class="btn btn-success mt-3">New Todo</a>
+    <a href="todos/new"class="btn btn-success mt-3">New To-do</a>
 </div>
 <div class="container">
     <h1 class="text-center">Done</h1>
@@ -29,6 +30,7 @@
                 <a href="/todos/{{id}}/done?_method=PUT" class="btn btn-warning">Undo</a>
                 {{ title }}
                 <p>Due date: {{formatDate due_date}}</p>
+                <p>Priority: {{priority}}</p>
                 <span>
                     <a href="/todos/edit/{{id}}" class="btn btn-warning">Edit</a>
                     <a href="/todos/{{ id }}?_method=DELETE"class="btn btn-danger">Delete</a>
